@@ -161,14 +161,4 @@ def save_results(phase, batch, loss, accuracy):
 train()
 test()
 
-model.eval()
-correct = 0
-total = 0
-with torch.no_grad():
-  for x, y in test_loader:
-    pred = model(x)
-    prediction = pred.argmax(1)
-    correct += (prediction == y).sum().item()
-    total += y.size(0)
-print('Accuracy: {:.3f}'.format(correct/total * 100))
 
